@@ -47,3 +47,7 @@ library("dplyr")
 mergedata_mean_std <- select(mergeddata, reqdcol)
 ##grouping data by activity to new dataset
 tidy_merged_data_by_activity <- group_by(mergedata_mean_std, Activity)
+##summary statistics for activity group printed on console
+summarize_all(tidy_merged_data_by_activity, "mean")
+##saving the tidy data set 
+write.table(tidy_merged_data_by_activity,"./tidy_data.txt")
